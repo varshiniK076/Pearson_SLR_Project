@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background: linear-gradient(to right, #89f7fe, #66a6ff);
+      font-family: 'Roboto', sans-serif;
+      color: #222;
+      padding-top: 50px;
+    }
+    h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 3rem;
+      color: #0b3954;
+      margin-bottom: 20px;
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      background: #fff;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .btn-custom {
+      background-color: #0b3954;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: #063247;
+    }
+    footer {
+      margin-top: 50px;
+      color: #333;
+    }
+  </style>
+
+  <title>Pearson Height Prediction</title>
+</head>
+
+<body>
+  <div class="container text-center">
+    <h1>👨‍👦 Pearson Height Prediction</h1>
+    <p class="lead mb-5">Predict the <strong>Son’s Height</strong> based on the <strong>Father’s Height</strong> using a Simple Linear Regression model.</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h4 class="mb-3">Enter Father’s Height (in inches)</h4>
+          <form action="/predict" method="POST">
+            <div class="mb-3">
+              <input type="number" step="any" class="form-control" name="Father" placeholder="e.g., 70" required />
+            </div>
+            <button type="submit" class="btn btn-custom btn-lg w-100">Predict Son’s Height</button>
+          </form>
+
+          {% if prediction_text %}
+          <div class="mt-4 p-3 bg-light rounded">
+            <h5><strong>{{ prediction_text }}</strong></h5>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-5">
+      <h4 class="mt-4">Project by Varshini</h4>
+      <p>Data Scientist & Machine Learning Engineer</p>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
